@@ -14,6 +14,11 @@
 		7038C8BB1C7665E7009245BF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7038C8B91C7665E7009245BF /* LaunchScreen.storyboard */; };
 		7038C8C61C7665E7009245BF /* BaseRomajiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7038C8C51C7665E7009245BF /* BaseRomajiTests.swift */; };
 		7038C8D11C7665E7009245BF /* BaseRomajiUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7038C8D01C7665E7009245BF /* BaseRomajiUITests.swift */; };
+		706F20AA1C9CA5890062C1B2 /* LessonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 706F20A91C9CA5890062C1B2 /* LessonViewController.swift */; };
+		70AC9D821C9890F600478B97 /* LessonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70AC9D811C9890F600478B97 /* LessonTableViewCell.swift */; };
+		70AC9D861C98A9F400478B97 /* RatingControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70AC9D851C98A9F400478B97 /* RatingControl.swift */; };
+		70AC9D881C98BAD600478B97 /* LessonTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70AC9D871C98BAD600478B97 /* LessonTableViewController.swift */; };
+		70AC9D8A1C98BB7200478B97 /* Lesson.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70AC9D891C98BB7200478B97 /* Lesson.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +52,11 @@
 		7038C8CC1C7665E7009245BF /* BaseRomajiUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BaseRomajiUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7038C8D01C7665E7009245BF /* BaseRomajiUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseRomajiUITests.swift; sourceTree = "<group>"; };
 		7038C8D21C7665E7009245BF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		706F20A91C9CA5890062C1B2 /* LessonViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LessonViewController.swift; sourceTree = "<group>"; };
+		70AC9D811C9890F600478B97 /* LessonTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LessonTableViewCell.swift; sourceTree = "<group>"; };
+		70AC9D851C98A9F400478B97 /* RatingControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RatingControl.swift; sourceTree = "<group>"; };
+		70AC9D871C98BAD600478B97 /* LessonTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LessonTableViewController.swift; path = ../LessonTableViewController.swift; sourceTree = "<group>"; };
+		70AC9D891C98BB7200478B97 /* Lesson.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Lesson.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +107,11 @@
 		7038C8AF1C7665E7009245BF /* BaseRomaji */ = {
 			isa = PBXGroup;
 			children = (
+				706F20A91C9CA5890062C1B2 /* LessonViewController.swift */,
+				70AC9D891C98BB7200478B97 /* Lesson.swift */,
+				70AC9D871C98BAD600478B97 /* LessonTableViewController.swift */,
+				70AC9D851C98A9F400478B97 /* RatingControl.swift */,
+				70AC9D811C9890F600478B97 /* LessonTableViewCell.swift */,
 				7038C8B01C7665E7009245BF /* AppDelegate.swift */,
 				7038C8B21C7665E7009245BF /* ViewController.swift */,
 				7038C8B41C7665E7009245BF /* Main.storyboard */,
@@ -256,8 +271,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				706F20AA1C9CA5890062C1B2 /* LessonViewController.swift in Sources */,
+				70AC9D861C98A9F400478B97 /* RatingControl.swift in Sources */,
+				70AC9D881C98BAD600478B97 /* LessonTableViewController.swift in Sources */,
 				7038C8B31C7665E7009245BF /* ViewController.swift in Sources */,
+				70AC9D8A1C98BB7200478B97 /* Lesson.swift in Sources */,
 				7038C8B11C7665E7009245BF /* AppDelegate.swift in Sources */,
+				70AC9D821C9890F600478B97 /* LessonTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -403,6 +423,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = blue42.BaseRomaji;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -414,6 +435,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = blue42.BaseRomaji;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
@@ -484,6 +506,7 @@
 				7038C8D71C7665E7009245BF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		7038C8D81C7665E7009245BF /* Build configuration list for PBXNativeTarget "BaseRomajiTests" */ = {
 			isa = XCConfigurationList;
@@ -492,6 +515,7 @@
 				7038C8DA1C7665E7009245BF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		7038C8DB1C7665E7009245BF /* Build configuration list for PBXNativeTarget "BaseRomajiUITests" */ = {
 			isa = XCConfigurationList;
@@ -500,6 +524,7 @@
 				7038C8DD1C7665E7009245BF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
