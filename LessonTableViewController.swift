@@ -10,9 +10,12 @@ import UIKit
 
 class LessonTableViewController: UITableViewController {
 
+    var lessons = [Lesson]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        loadSampleLesson()
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -29,23 +32,45 @@ class LessonTableViewController: UITableViewController {
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return lessons.count
+    }
+    
+    func    loadSampleLesson() {
+        
+        let photo1 = UIImage(named: "image1")!
+        let lesson1 = Lesson(name: "Dessu", photo: photo1, complet: 1, error: 1)!
+        
+        let photo2 = UIImage(named: "image2")!
+        let lesson2 = Lesson(name: "Watashi", photo: photo2, complet: 0.7, error: 0.9)!
+        
+        let photo3 = UIImage(named: "image3")!
+        let lesson3 = Lesson(name: "Anata", photo: photo3, complet: 0.2, error: 0.3)!
+        
+        lessons += [lesson1, lesson2, lesson3]
     }
 
-    /*
+    
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath)
-
+        
+        let identifier = "LessonTableViewCell"
+        let cell = tableView.dequeueReusableCellWithIdentifier(identifier, forIndexPath: indexPath) as! LessonTableViewCell
+        let focusLesson = lessons[indexPath.row]
+        
+        cell.titleLabel.text =  focusLesson.name
+        cell.completBar.progress = focusLesson.complet
+        cell.errorBar.progress = focusLesson.error
+        cell.imageSet.image = focusLesson.photo
+        
         // Configure the cell...
 
         return cell
     }
-    */
+    
 
     /*
     // Override to support conditional editing of the table view.
@@ -82,14 +107,22 @@ class LessonTableViewController: UITableViewController {
     }
     */
 
-    /*
+
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "ShowLesson" {
+            let lessonDetailViewController = segue.destinationViewController as! LessonViewController
+            
+            if let selectedLessonCell = sender as? LessonTableViewCell {
+                let indexPath = tableView.indexPathForCell(selectedLessonCell)!
+                let selectedLesson = lessons[indexPath.row]
+                lessonDetailViewController.lesson = selectedLesson
+            }
+        }
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
     }
-    */
-
+    
 }

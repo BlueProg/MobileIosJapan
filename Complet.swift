@@ -6,7 +6,7 @@
 //  Copyright © 2016 Mathieu MOLE. All rights reserved.
 //
 
-import Cocoa
+import UIKit
 
 class Complet: UIProgressView {
 
