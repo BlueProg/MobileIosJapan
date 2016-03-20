@@ -27,4 +27,12 @@ class LessonViewController: UIViewController {
        // dismissViewControllerAnimated(true, completion: nil)  avec navigation
         navigationController!.popViewControllerAnimated(true) // lien direct
     }
+    
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?){
+        let spec = segue.destinationViewController as! ExerciceViewController
+        spec.lesson = lesson!
+        spec.mode = segue.identifier!
+    }
+    
 }

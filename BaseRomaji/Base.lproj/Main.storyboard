@@ -101,7 +101,7 @@
                                         <rect key="frame" x="0.0" y="77" width="560" height="30"/>
                                         <state key="normal" title="Training"/>
                                         <connections>
-                                            <segue destination="XcI-R9-9ZI" kind="show" id="fdv-3B-Uk8"/>
+                                            <segue destination="XcI-R9-9ZI" kind="show" identifier="TrainingMode" id="fdv-3B-Uk8"/>
                                         </connections>
                                     </button>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="a4L-sO-fEs">
@@ -110,6 +110,9 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VSJ-xp-hJm">
                                                 <rect key="frame" x="0.0" y="0.0" width="270" height="30"/>
                                                 <state key="normal" title="Exam"/>
+                                                <connections>
+                                                    <segue destination="XcI-R9-9ZI" kind="show" identifier="ExamMode" id="PDf-Jx-oFm"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d2H-Ar-hxG">
                                                 <rect key="frame" x="290" y="0.0" width="270" height="30"/>
@@ -123,6 +126,9 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yxJ-ch-u5W">
                                                 <rect key="frame" x="0.0" y="0.0" width="270" height="30"/>
                                                 <state key="normal" title="Focus"/>
+                                                <connections>
+                                                    <segue destination="XcI-R9-9ZI" kind="show" identifier="FocusMode" id="5DY-eK-mEr"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="itA-xj-lmN">
                                                 <rect key="frame" x="290" y="0.0" width="270" height="30"/>
@@ -155,10 +161,10 @@
             </objects>
             <point key="canvasLocation" x="2623" y="651"/>
         </scene>
-        <!--View Controller-->
+        <!--Exercice View Controller-->
         <scene sceneID="hpL-V8-gag">
             <objects>
-                <viewController id="XcI-R9-9ZI" sceneMemberID="viewController">
+                <viewController id="XcI-R9-9ZI" customClass="ExerciceViewController" customModule="BaseRomaji" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="rT0-49-s2S"/>
                         <viewControllerLayoutGuide type="bottom" id="iu6-ap-qWr"/>
@@ -176,7 +182,7 @@
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FrWord" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9R5-Rc-MxK">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="FrWord" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9R5-Rc-MxK">
                                         <rect key="frame" x="0.0" y="77" width="560" height="26"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -216,7 +222,7 @@
                                             </label>
                                         </subviews>
                                     </stackView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Question 0/35" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sU2-GL-YKm">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Question 0/35" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sU2-GL-YKm">
                                         <rect key="frame" x="0.0" y="305" width="560" height="20"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -244,6 +250,15 @@
                             <constraint firstItem="rNb-ak-9q9" firstAttribute="top" secondItem="rT0-49-s2S" secondAttribute="bottom" constant="40" id="vo4-GM-vCY"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="labelChoice1" destination="zcA-d7-ASy" id="2WN-nL-Nad"/>
+                        <outlet property="labelChoice2" destination="c1c-83-3Dk" id="s9t-Wx-IPc"/>
+                        <outlet property="labelChoice3" destination="quh-Xd-WNq" id="epV-gj-0GQ"/>
+                        <outlet property="labelChoice4" destination="PHH-QQ-V77" id="KbJ-ne-FSx"/>
+                        <outlet property="labelQuestionNumber" destination="sU2-GL-YKm" id="FuX-Ae-He4"/>
+                        <outlet property="labelSearchWord" destination="9R5-Rc-MxK" id="Del-NH-y91"/>
+                        <outlet property="labelTitle" destination="w3l-RI-fHz" id="4ER-tC-wEr"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KS4-21-2Ob" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -291,5 +306,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="uU3-TO-rRV"/>
+        <segue reference="5DY-eK-mEr"/>
     </inferredMetricsTieBreakers>
 </document>

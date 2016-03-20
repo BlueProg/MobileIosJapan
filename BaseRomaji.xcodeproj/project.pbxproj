@@ -15,6 +15,7 @@
 		7038C8C61C7665E7009245BF /* BaseRomajiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7038C8C51C7665E7009245BF /* BaseRomajiTests.swift */; };
 		7038C8D11C7665E7009245BF /* BaseRomajiUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7038C8D01C7665E7009245BF /* BaseRomajiUITests.swift */; };
 		706F20AA1C9CA5890062C1B2 /* LessonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 706F20A91C9CA5890062C1B2 /* LessonViewController.swift */; };
+		7072D5301C9EFC1E005A2F2C /* ExerciceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7072D52F1C9EFC1E005A2F2C /* ExerciceViewController.swift */; };
 		70AC9D821C9890F600478B97 /* LessonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70AC9D811C9890F600478B97 /* LessonTableViewCell.swift */; };
 		70AC9D861C98A9F400478B97 /* RatingControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70AC9D851C98A9F400478B97 /* RatingControl.swift */; };
 		70AC9D881C98BAD600478B97 /* LessonTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70AC9D871C98BAD600478B97 /* LessonTableViewController.swift */; };
@@ -53,6 +54,7 @@
 		7038C8D01C7665E7009245BF /* BaseRomajiUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseRomajiUITests.swift; sourceTree = "<group>"; };
 		7038C8D21C7665E7009245BF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		706F20A91C9CA5890062C1B2 /* LessonViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LessonViewController.swift; sourceTree = "<group>"; };
+		7072D52F1C9EFC1E005A2F2C /* ExerciceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ExerciceViewController.swift; path = BaseRomaji/ExerciceViewController.swift; sourceTree = "<group>"; };
 		70AC9D811C9890F600478B97 /* LessonTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LessonTableViewCell.swift; sourceTree = "<group>"; };
 		70AC9D851C98A9F400478B97 /* RatingControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RatingControl.swift; sourceTree = "<group>"; };
 		70AC9D871C98BAD600478B97 /* LessonTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LessonTableViewController.swift; path = ../LessonTableViewController.swift; sourceTree = "<group>"; };
@@ -87,6 +89,7 @@
 		7038C8A41C7665E7009245BF = {
 			isa = PBXGroup;
 			children = (
+				7072D52F1C9EFC1E005A2F2C /* ExerciceViewController.swift */,
 				7038C8AF1C7665E7009245BF /* BaseRomaji */,
 				7038C8C41C7665E7009245BF /* BaseRomajiTests */,
 				7038C8CF1C7665E7009245BF /* BaseRomajiUITests */,
@@ -277,6 +280,7 @@
 				7038C8B31C7665E7009245BF /* ViewController.swift in Sources */,
 				70AC9D8A1C98BB7200478B97 /* Lesson.swift in Sources */,
 				7038C8B11C7665E7009245BF /* AppDelegate.swift in Sources */,
+				7072D5301C9EFC1E005A2F2C /* ExerciceViewController.swift in Sources */,
 				70AC9D821C9890F600478B97 /* LessonTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
