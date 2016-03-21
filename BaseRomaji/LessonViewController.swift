@@ -18,7 +18,7 @@ class LessonViewController: UIViewController {
         super.viewDidLoad()
         
         if let lesson = lesson {
-            labelTitle.text = lesson.name
+            labelTitle.text = lesson.lessonTitle
         }
     }
 

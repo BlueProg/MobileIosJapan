@@ -43,13 +43,13 @@ class LessonTableViewController: UITableViewController {
     func    loadSampleLesson() {
         
         let photo1 = UIImage(named: "image1")!
-        let lesson1 = Lesson(name: "Dessu", photo: photo1, complet: 1, error: 1)!
+        let lesson1 = Lesson(lessonTitle: "Dessu", picture: photo1, complet: 1, sucess: 1)!
         
         let photo2 = UIImage(named: "image2")!
-        let lesson2 = Lesson(name: "Watashi", photo: photo2, complet: 0.7, error: 0.9)!
+        let lesson2 = Lesson(lessonTitle: "Watashi", picture: photo2, complet: 0.9, sucess: 0.7)!
         
         let photo3 = UIImage(named: "image3")!
-        let lesson3 = Lesson(name: "Anata", photo: photo3, complet: 0.2, error: 0.3)!
+        let lesson3 = Lesson(lessonTitle: "Anata", picture: photo3, complet: 0.4, sucess: 0.2)!
         
         lessons += [lesson1, lesson2, lesson3]
     }
@@ -61,10 +61,10 @@ class LessonTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCellWithIdentifier(identifier, forIndexPath: indexPath) as! LessonTableViewCell
         let focusLesson = lessons[indexPath.row]
         
-        cell.titleLabel.text =  focusLesson.name
+        cell.titleLabel.text =  focusLesson.lessonTitle
         cell.completBar.progress = focusLesson.complet
-        cell.errorBar.progress = focusLesson.error
-        cell.imageSet.image = focusLesson.photo
+        cell.sucessBar.progress = focusLesson.sucess
+        cell.imageSet.image = focusLesson.picture
         
         // Configure the cell...
 

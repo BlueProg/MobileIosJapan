@@ -11,9 +11,9 @@ import UIKit
 class LessonTableViewCell: UITableViewCell {
 
     @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var completBar: UIProgressView!
+    @IBOutlet weak var sucessBar: UIProgressView!
     @IBOutlet weak var imageSet: UIImageView!
-    @IBOutlet weak var errorBar: UIProgressView!
+    @IBOutlet weak var completBar: UIProgressView!
     
     override func awakeFromNib() {
         super.awakeFromNib()

@@ -25,14 +25,14 @@
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="defaultImage" translatesAutoresizingMaskIntoConstraints="NO" id="uqK-yD-JTf">
                                             <rect key="frame" x="0.0" y="1" width="88" height="88"/>
                                         </imageView>
-                                        <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" misplaced="YES" progress="0.69999999999999996" translatesAutoresizingMaskIntoConstraints="NO" id="YCe-lW-tdr" userLabel="Error Bar">
+                                        <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" misplaced="YES" progress="0.69999999999999996" translatesAutoresizingMaskIntoConstraints="NO" id="YCe-lW-tdr" userLabel="Complet Bar">
                                             <rect key="frame" x="96" y="57" width="496" height="20"/>
                                             <color key="tintColor" red="1" green="0.9581335569519086" blue="0.377639748476151" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="20" id="K2h-23-Bx8"/>
                                             </constraints>
                                         </progressView>
-                                        <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" misplaced="YES" progressViewStyle="bar" progress="0.29999999999999999" translatesAutoresizingMaskIntoConstraints="NO" id="TlK-Gn-D1b">
+                                        <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" misplaced="YES" progressViewStyle="bar" progress="0.29999999999999999" translatesAutoresizingMaskIntoConstraints="NO" id="TlK-Gn-D1b" userLabel="Sucess Bar">
                                             <rect key="frame" x="96" y="57" width="496" height="21"/>
                                             <color key="backgroundColor" red="1" green="0.93432611308091518" blue="0.47084013227543753" alpha="0.0" colorSpace="calibratedRGB"/>
                                             <color key="tintColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -57,9 +57,9 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="completBar" destination="TlK-Gn-D1b" id="LIi-6K-96V"/>
-                                    <outlet property="errorBar" destination="YCe-lW-tdr" id="Uc7-bs-lJw"/>
+                                    <outlet property="completBar" destination="YCe-lW-tdr" id="m58-D8-vd5"/>
                                     <outlet property="imageSet" destination="uqK-yD-JTf" id="yqn-Ep-R1a"/>
+                                    <outlet property="sucessBar" destination="TlK-Gn-D1b" id="OWi-YS-BUZ"/>
                                     <outlet property="titleLabel" destination="SFR-kD-PGV" id="udR-It-OA3"/>
                                     <segue destination="O7w-VB-JJQ" kind="show" identifier="ShowLesson" id="uU3-TO-rRV"/>
                                 </connections>
@@ -182,7 +182,7 @@
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="FrWord" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9R5-Rc-MxK">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FrWord" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9R5-Rc-MxK">
                                         <rect key="frame" x="0.0" y="77" width="560" height="26"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>

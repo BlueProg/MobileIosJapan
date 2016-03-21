@@ -26,7 +26,7 @@ class ExerciceViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        labelTitle.text = lesson!.name
+        labelTitle.text = lesson!.lessonTitle
         labelSearchWord.text = mode
     }
 }

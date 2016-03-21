@@ -10,19 +10,19 @@ import UIKit
 
 class   Lesson {
 
-    var name: String
-    var photo: UIImage?
+    var lessonTitle: String
+    var picture: UIImage?
     var complet: Float
-    var error: Float
+    var sucess: Float
     
-    init?(name: String, photo: UIImage?, complet: Float, error: Float) {
+    init?(lessonTitle: String, picture: UIImage?, complet: Float, sucess: Float) {
     
-        self.name = name
-        self.photo = photo
+        self.lessonTitle = lessonTitle
+        self.picture = picture
         self.complet = complet
-        self.error = error
+        self.sucess = sucess
      
-        if name.isEmpty || complet < 0 {
+        if lessonTitle.isEmpty || complet < 0 {
             return nil
         }
     }
