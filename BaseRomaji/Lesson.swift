@@ -14,6 +14,7 @@ class   Lesson {
     var picture: UIImage?
     var complet: Float
     var sucess: Float
+    var dictionary: []
     
     init?(lessonTitle: String, picture: UIImage?, complet: Float, sucess: Float) {
     
