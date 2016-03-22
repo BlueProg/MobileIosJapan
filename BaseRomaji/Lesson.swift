@@ -14,14 +14,21 @@ class   Lesson {
     var picture: UIImage?
     var complet: Float
     var sucess: Float
-    var dictionary: []
+    struct dictionary {
+        var fr = String()
+        var jap = String()
+        var call:Int
+        var sucess:Int
+    }
+    var dico: [dictionary]
     
-    init?(lessonTitle: String, picture: UIImage?, complet: Float, sucess: Float) {
+    init?(lessonTitle: String, picture: UIImage?, complet: Float, sucess: Float, words: [dictionary]) {
     
         self.lessonTitle = lessonTitle
         self.picture = picture
         self.complet = complet
         self.sucess = sucess
+        self.dico = words
      
         if lessonTitle.isEmpty || complet < 0 {
             return nil
