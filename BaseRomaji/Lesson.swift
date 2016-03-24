@@ -8,21 +8,22 @@
 
 import UIKit
 
+struct DictionaryLesson {
+    var fr = String()
+    var jap = String()
+    var call:Int
+    var sucess:Int
+}
+
 class   Lesson {
 
     var lessonTitle: String
     var picture: UIImage?
     var complet: Float
     var sucess: Float
-    struct dictionary {
-        var fr = String()
-        var jap = String()
-        var call:Int
-        var sucess:Int
-    }
-    var dico: [dictionary]
+    var dico: [DictionaryLesson]
     
-    init?(lessonTitle: String, picture: UIImage?, complet: Float, sucess: Float, words: [dictionary]) {
+    init?(lessonTitle: String, picture: UIImage?, complet: Float, sucess: Float, words: [DictionaryLesson]) {
     
         self.lessonTitle = lessonTitle
         self.picture = picture

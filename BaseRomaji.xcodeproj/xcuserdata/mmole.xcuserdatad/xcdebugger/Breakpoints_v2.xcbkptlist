@@ -17,38 +17,22 @@
             endingLineNumber = "19"
             landmarkName = "testLessonInitialization()"
             landmarkType = "5">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "BaseRomajiTests.BaseRomajiTests.testLessonInitialization (BaseRomajiTests.BaseRomajiTests)() -&gt; ()"
-                  moduleName = "BaseRomajiTests"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///nfs/2013/m/mmole/ios/BaseRomaji/BaseRomajiTests/BaseRomajiTests.swift"
-                  timestampString = "479775615.460622"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "19"
-                  endingLineNumber = "19"
-                  offsetFromSymbolStart = "376">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "BaseRomajiTests.BaseRomajiTests.(testLessonInitialization (BaseRomajiTests.BaseRomajiTests) -&gt; () -&gt; ()).(implicit closure #2)"
-                  moduleName = "BaseRomajiTests"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///nfs/2013/m/mmole/ios/BaseRomaji/BaseRomajiTests/BaseRomajiTests.swift"
-                  timestampString = "479775615.461996"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "19"
-                  endingLineNumber = "19"
-                  offsetFromSymbolStart = "19">
-               </Location>
-            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "LessonTableViewController.swift"
+            timestampString = "480536700.961381"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "73"
+            endingLineNumber = "73"
+            landmarkName = "loadSampleLesson()"
+            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

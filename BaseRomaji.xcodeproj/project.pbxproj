@@ -53,7 +53,7 @@
 		7038C8D01C7665E7009245BF /* BaseRomajiUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseRomajiUITests.swift; sourceTree = "<group>"; };
 		7038C8D21C7665E7009245BF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		706F20A91C9CA5890062C1B2 /* LessonViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LessonViewController.swift; sourceTree = "<group>"; };
-		7072D52F1C9EFC1E005A2F2C /* ExerciceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ExerciceViewController.swift; path = BaseRomaji/ExerciceViewController.swift; sourceTree = "<group>"; };
+		7072D52F1C9EFC1E005A2F2C /* ExerciceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExerciceViewController.swift; sourceTree = "<group>"; };
 		70AC9D811C9890F600478B97 /* LessonTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LessonTableViewCell.swift; sourceTree = "<group>"; };
 		70AC9D871C98BAD600478B97 /* LessonTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LessonTableViewController.swift; path = ../LessonTableViewController.swift; sourceTree = "<group>"; };
 		70AC9D891C98BB7200478B97 /* Lesson.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Lesson.swift; sourceTree = "<group>"; };
@@ -87,7 +87,6 @@
 		7038C8A41C7665E7009245BF = {
 			isa = PBXGroup;
 			children = (
-				7072D52F1C9EFC1E005A2F2C /* ExerciceViewController.swift */,
 				7038C8AF1C7665E7009245BF /* BaseRomaji */,
 				7038C8C41C7665E7009245BF /* BaseRomajiTests */,
 				7038C8CF1C7665E7009245BF /* BaseRomajiUITests */,
@@ -108,6 +107,7 @@
 		7038C8AF1C7665E7009245BF /* BaseRomaji */ = {
 			isa = PBXGroup;
 			children = (
+				7072D52F1C9EFC1E005A2F2C /* ExerciceViewController.swift */,
 				706F20A91C9CA5890062C1B2 /* LessonViewController.swift */,
 				70AC9D891C98BB7200478B97 /* Lesson.swift */,
 				70AC9D871C98BAD600478B97 /* LessonTableViewController.swift */,

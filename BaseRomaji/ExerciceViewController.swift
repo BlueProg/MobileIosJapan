@@ -21,12 +21,17 @@ class ExerciceViewController: UIViewController {
     @IBOutlet weak var labelQuestionNumber: UILabel!
     
     var mode = "train"
-    var lesson: Lesson?
+    var lesson: Lesson!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        labelTitle.text = lesson!.lessonTitle
-        labelSearchWord.text = mode
+        labelTitle.text = lesson.lessonTitle
+        labelSearchWord.text = lesson.dico[0].fr
+        labelChoice1.text = lesson.dico[0].jap
+        
+        labelChoice2.text = lesson.dico[1].jap
+        labelChoice3.text = lesson.dico[2].jap
+        labelChoice4.text = lesson.dico[3].jap
     }
 }
