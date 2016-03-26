@@ -27,11 +27,17 @@ class ExerciceViewController: UIViewController {
         super.viewDidLoad()
         
         labelTitle.text = lesson.lessonTitle
-        labelSearchWord.text = lesson.dico[0].fr
-        labelChoice1.text = lesson.dico[0].jap
+        labelSearchWord.text = lesson.dicoFr[0]
+        labelChoice1.text = lesson.dicoFr[0]
         
-        labelChoice2.text = lesson.dico[1].jap
-        labelChoice3.text = lesson.dico[2].jap
-        labelChoice4.text = lesson.dico[3].jap
+        labelChoice2.text = lesson.dicoFr[1]
+        labelChoice3.text = lesson.dicoFr[2]
+        labelChoice4.text = lesson.dicoFr[3]
+//        labelSearchWord.text = lesson.dico[0].fr
+//        labelChoice1.text = lesson.dico[0].jap
+//        
+//        labelChoice2.text = lesson.dico[1].jap
+//        labelChoice3.text = lesson.dico[2].jap
+//        labelChoice4.text = lesson.dico[3].jap
     }
 }

@@ -16,12 +16,14 @@ class LessonTableViewController: UITableViewController {
         super.viewDidLoad()
 
         
-//        if let dataLesson = loadsData() {
-//            lessons += dataLesson
-//        }
-//        else {
-//            loadSampleLesson()
-//        }
+        if let dataLesson = loadData() {
+            lessons += dataLesson
+            print("Data load")
+        }
+        else {
+            loadSampleLesson()
+            print("Data sample")
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -42,109 +44,32 @@ class LessonTableViewController: UITableViewController {
     }
     
     func    loadData() -> [Lesson]? {
-    //    return NSKeyedUnarchiver.unarchiveObjectWithFile(<#T##path: String##String#>)
+        return NSKeyedUnarchiver.unarchiveObjectWithFile(Lesson.ArchiveURL.path!) as? [Lesson]
+    }
+    
+    func    saveLessons() {
+        let isSucessfulSave = NSKeyedArchiver.archiveRootObject(lessons, toFile: Lesson.ArchiveURL.path!)
+        if !isSucessfulSave {
+            print("Failed to save lessons ...")
+        }
     }
     
     func    loadSampleLesson() {
         
         let photo1 = UIImage(named: "image1")!
-        var dico1 = [DictionaryLesson]()
-        
-        dico1.append(DictionaryLesson(
-            fr: "grand",
-            jap: "ooki",
-            call: 0,
-            sucess: 0
-        ))
-        
-        dico1.append(DictionaryLesson(
-            fr: "petit",
-            jap: "chiisai",
-            call: 0,
-            sucess: 0
-        ))
-        
-        dico1.append(DictionaryLesson(
-            fr: "chaud",
-            jap: "atsui",
-            call: 0,
-            sucess: 0
-        ))
-        
-        dico1.append(DictionaryLesson(
-            fr: "froid",
-            jap: "samui",
-            call: 0,
-            sucess: 0
-        ))
-        
-        let lesson1 = Lesson(lessonTitle: "Adjectif1", picture: photo1, complet: 1, sucess: 1, words: dico1)!
+        let dicofr1 = ["grand", "petit","chaud", "froid"]
+        let lesson1 = Lesson(lessonTitle: "Adjectif1", picture: photo1, complet: 1, sucess: 1, dicoFr: dicofr1)!
         
         let photo2 = UIImage(named: "image2")!
-        var dico2 = [DictionaryLesson]()
-        
-        dico2.append(DictionaryLesson(
-            fr: "gros",
-            jap: "futoi",
-            call: 0,
-            sucess: 0
-        ))
-        
-        dico2.append(DictionaryLesson(
-            fr: "mince",
-            jap: "usui",
-            call: 0,
-            sucess: 0
-        ))
-        
-        dico2.append(DictionaryLesson(
-            fr: "haut, cher",
-            jap: "takai",
-            call: 0,
-            sucess: 0
-        ))
-        
-        dico2.append(DictionaryLesson(
-            fr: "bas",
-            jap: "hikui",
-            call: 0,
-            sucess: 0
-        ))
-        let lesson2 = Lesson(lessonTitle: "Adjectif2", picture: photo2, complet: 0.9, sucess: 0.7, words: dico2)!
+        let dicofr2 = ["gros", "mince","haut, cher", "bas"]
+        let lesson2 = Lesson(lessonTitle: "Adjectif2", picture: photo2, complet: 0.9, sucess: 0.7, dicoFr: dicofr2)!
         
         let photo3 = UIImage(named: "image3")!
-        var dico3 = [DictionaryLesson]()
-        
-        dico3.append(DictionaryLesson(
-            fr: "nouveau, récent",
-            jap: "atarashii",
-            call: 0,
-            sucess: 0
-        ))
-        
-        dico3.append(DictionaryLesson(
-            fr: "vieux",
-            jap: "furui",
-            call: 0,
-            sucess: 0
-        ))
-        
-        dico3.append(DictionaryLesson(
-            fr: "rapide",
-            jap: "hayai",
-            call: 0,
-            sucess: 0
-        ))
-        
-        dico3.append(DictionaryLesson(
-            fr: "lent",
-            jap: "osoi",
-            call: 0,
-            sucess: 0
-        ))
-        let lesson3 = Lesson(lessonTitle: "Adjectif3", picture: photo3, complet: 0.4, sucess: 0.2, words: dico3)!
+        let dicoFr3 = ["nouveau, récent", "vieux", "rapide", "lent"]
+        let lesson3 = Lesson(lessonTitle: "Adjectif3", picture: photo3, complet: 0.4, sucess: 0.2, dicoFr: dicoFr3)!
         
         lessons += [lesson1, lesson2, lesson3]
+        saveLessons()
     }
 
     
@@ -160,7 +85,6 @@ class LessonTableViewController: UITableViewController {
         cell.imageSet.image = focusLesson.picture
         
         // Configure the cell...
-
         return cell
     }
     

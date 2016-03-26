@@ -8,29 +8,26 @@
 
 import UIKit
 
-struct DictionaryLesson {
-    var fr = String()
-    var jap = String()
-    var call:Int
-    var sucess:Int
-}
-
 class Lesson: NSObject, NSCoding {
 
+    static let DocumentsDirectory = NSFileManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask).first!
+    static let ArchiveURL = DocumentsDirectory.URLByAppendingPathComponent("lessons")
+    
     var lessonTitle: String
     var picture: UIImage?
     var complet: Float
     var sucess: Float
-    var dico: [DictionaryLesson]
-    //var dico: NSMutableArray = NSMutableArray()
+
+    var dicoFr: [String]
     
-    init?(lessonTitle: String, picture: UIImage?, complet: Float, sucess: Float, words: [DictionaryLesson]) {
+    
+    init?(lessonTitle: String, picture: UIImage?, complet: Float, sucess: Float, dicoFr: [String]) {
     
         self.lessonTitle = lessonTitle
         self.picture = picture
         self.complet = complet
         self.sucess = sucess
-        self.dico = words
+        self.dicoFr = dicoFr
      
         if lessonTitle.isEmpty || complet < 0 {
             return nil
@@ -42,12 +39,16 @@ class Lesson: NSObject, NSCoding {
         aCoder.encodeObject(picture, forKey: "picture")
         aCoder.encodeObject(complet, forKey: "complet")
         aCoder.encodeObject(sucess, forKey: "sucess")
-//        aCoder.encodeObject(dico, forKey: "lessonTitle")
+        aCoder.encodeObject(dicoFr, forKey: "dicoFr")
     }
     
-//    required convenience init?(coder aDecoder: NSCoder) {
-//        let lessonTitle = aDecoder.decodeObjectForKey("lessonTitle") as! String
-//        
-//        self.init(lessonTitle: lessonTitle)
-//    }
+    required convenience init?(coder aDecoder: NSCoder) {
+        let lessonTitle = aDecoder.decodeObjectForKey("lessonTitle") as! String
+        let picture = aDecoder.decodeObjectForKey("picture") as! UIImage
+        let complet = aDecoder.decodeObjectForKey("complet") as! Float
+        let sucess = aDecoder.decodeObjectForKey("sucess") as! Float
+        let dicoFr = aDecoder.decodeObjectForKey("dicoFr") as! [String]
+        
+        self.init(lessonTitle: lessonTitle, picture: picture, complet: complet, sucess: sucess, dicoFr: dicoFr)
+    }
 }
