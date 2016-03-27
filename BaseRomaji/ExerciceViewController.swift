@@ -45,23 +45,36 @@ class ExerciceViewController: UIViewController {
     }
     
     func NewWord() {
-        print("newWord")
+        print("newWord with mode: " + mode)
         number += 1
-        if mode == "train" {
+        if mode == "TrainingMode" {
+            print("enter train mode")
             var numberGenerate = [Int]()
-            numberGenerate[0] = RandomExclu(numberGenerate)
-            numberGenerate[1] = RandomExclu(numberGenerate)
-            numberGenerate[2] = RandomExclu(numberGenerate)
-            numberGenerate[3] = RandomExclu(numberGenerate)
+            numberGenerate.append(RandomExclu(numberGenerate))
+            numberGenerate.append(RandomExclu(numberGenerate))
+            numberGenerate.append(RandomExclu(numberGenerate))
+            numberGenerate.append(RandomExclu(numberGenerate))
+            print("0: " + String(numberGenerate[0]) + " dicoJap: " + lesson.dicoJap[numberGenerate[0]])
+            print("1: " + String(numberGenerate[1]) + " dicoJap: " + lesson.dicoJap[numberGenerate[1]])
+            print("2: " + String(numberGenerate[2]) + " dicoJap: " + lesson.dicoJap[numberGenerate[2]])
+            print("3: " + String(numberGenerate[3]) + " dicoJap: " + lesson.dicoJap[numberGenerate[3]])
             outletButtonTopLeft.setTitle(lesson.dicoJap[numberGenerate[0]], forState: .Normal)
             outletButtonTopRight.setTitle(lesson.dicoJap[numberGenerate[1]], forState: .Normal)
             outletButtonBottomLeft.setTitle(lesson.dicoJap[numberGenerate[2]], forState: .Normal)
             outletButtonBottomRight.setTitle(lesson.dicoJap[numberGenerate[3]], forState: .Normal)
+            
+            outletButtonTopLeft.setTitleColor(UIColor.blueColor(), forState: .Normal)
+            outletButtonTopRight.setTitleColor(UIColor.blueColor(), forState: .Normal)
+            outletButtonBottomLeft.setTitleColor(UIColor.blueColor(), forState: .Normal)
+            outletButtonBottomRight.setTitleColor(UIColor.blueColor(), forState: .Normal)
             buttonWord = Int(arc4random_uniform(4))
             indexWord = numberGenerate[buttonWord]
+            
+            print("bottonWord: " + String(buttonWord))
+            print("indexWord: " + String(indexWord) + " , label: " + lesson.dicoFr[indexWord])
             labelSearchWord.text = lesson.dicoFr[indexWord]
         }
-        else if mode == "exam" {
+        else if mode == "ExamMode" {
         
         }
         else {
@@ -80,13 +93,13 @@ class ExerciceViewController: UIViewController {
     func CheckWord(choice: Int) {
         
         if choice != buttonWord {
-            if choice == 1 {
+            if choice == 0 {
                 outletButtonTopLeft.setTitleColor(UIColor.redColor(), forState: .Normal)
             }
-            else if choice == 2 {
+            else if choice == 1 {
                 outletButtonTopRight.setTitleColor(UIColor.redColor(), forState: .Normal)
             }
-            else if choice == 3 {
+            else if choice == 2 {
                 outletButtonBottomLeft.setTitleColor(UIColor.redColor(), forState: .Normal)
             }
             else {
@@ -95,13 +108,13 @@ class ExerciceViewController: UIViewController {
             // save Error
         }
         else {
-            if choice == 1 {
+            if choice == 0 {
                 outletButtonTopLeft.setTitleColor(UIColor.greenColor(), forState: .Normal)
             }
-            else if choice == 2 {
+            else if choice == 1 {
                 outletButtonTopRight.setTitleColor(UIColor.greenColor(), forState: .Normal)
             }
-            else if choice == 3 {
+            else if choice == 2 {
                 outletButtonBottomLeft.setTitleColor(UIColor.greenColor(), forState: .Normal)
             }
             else {
@@ -129,21 +142,21 @@ class ExerciceViewController: UIViewController {
   
     @IBAction func buttonTopLeft(sender: AnyObject) {
         print("buttonLeft")
-        CheckWord(1)
+        CheckWord(0)
     }
     
     @IBAction func buttonTopRight(sender: AnyObject) {
         print("buttonRight")
-        CheckWord(2)
+        CheckWord(1)
     }
     
     @IBAction func buttonBottomLeft(sender: AnyObject) {
         print("buttonBottomLeft")
-        CheckWord(3)
+        CheckWord(2)
     }
     
     @IBAction func buttonBottomRight(sender: AnyObject) {
         print("buttonBottomRight")
-        CheckWord(4)
+        CheckWord(3)
     }
 }
