@@ -19,5 +19,53 @@
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "BaseRomaji/Lesson.swift"
+            timestampString = "480803962.915609"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "10"
+            endingLineNumber = "10"
+            landmarkName = "Lesson"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "BaseRomaji.Lesson.__deallocating_deinit"
+                  moduleName = "BaseRomaji"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///nfs/2013/m/mmole/ios/gitIosJapan/BaseRomaji/BaseRomaji/Lesson.swift"
+                  timestampString = "480803965.715822"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "4">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "BaseRomaji.Lesson.init () -&gt; BaseRomaji.Lesson"
+                  moduleName = "BaseRomaji"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///nfs/2013/m/mmole/ios/gitIosJapan/BaseRomaji/BaseRomaji/Lesson.swift"
+                  timestampString = "480803965.719527"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "11"
+                  endingLineNumber = "11"
+                  offsetFromSymbolStart = "20">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>
