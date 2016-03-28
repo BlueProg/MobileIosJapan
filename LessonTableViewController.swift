@@ -15,14 +15,14 @@ class LessonTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-       if let dataLesson = loadData() {
-            lessons += dataLesson
-            print("Data load")
-        }
-        else {
+//       if let dataLesson = loadData() {
+//            lessons += dataLesson
+//            print("Data load")
+//        }
+//        else {
             loadSampleLesson()
             print("Data sample")
-        }
+//        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -56,19 +56,19 @@ class LessonTableViewController: UITableViewController {
     func    loadSampleLesson() {
         
         let photo1 = UIImage(named: "image1")!
-        let dicofr1 = ["grand", "petit","chaud", "froid"]
-        let dicojap1 = ["ookii", "chiisai","atsui", "samui"]
-        let lesson1 = Lesson(lessonTitle: "Adjectif1", picture: photo1, complet: 1, sucess: 1, dicoFr: dicofr1, dicoJap: dicojap1, dicoCall: [0, 0, 0, 0], dicoSucess: [0, 0, 0, 0])!
+        let dicofr1 = ["grand", "petit","chaud", "froid", "loin"]
+        let dicojap1 = ["ookii", "chiisai","atsui", "samui", "tooi"]
+        let lesson1 = Lesson(lessonTitle: "Adjectif1", picture: photo1, complet: 1, sucess: 1, dicoFr: dicofr1, dicoJap: dicojap1, dicoCall: [0, 0, 0, 0, 0], dicoSucess: [0, 0, 0, 0, 0], seedRandom: 0)!
         
         let photo2 = UIImage(named: "image2")!
-        let dicofr2 = ["gros", "mince","haut, cher", "bas"]
-        let dicoJap2 = ["futoi", "usui","takai", "hikui"]
-        let lesson2 = Lesson(lessonTitle: "Adjectif2", picture: photo2, complet: 0.9, sucess: 0.7, dicoFr: dicofr2, dicoJap: dicoJap2, dicoCall: [0, 0, 0, 0], dicoSucess: [0, 0, 0, 0])!
+        let dicofr2 = ["gros", "mince","haut, cher", "bas", "proche"]
+        let dicoJap2 = ["futoi", "usui","takai", "hikui", "chikai"]
+        let lesson2 = Lesson(lessonTitle: "Adjectif2", picture: photo2, complet: 0.9, sucess: 0.7, dicoFr: dicofr2, dicoJap: dicoJap2, dicoCall: [0, 0, 0, 0, 0], dicoSucess: [0, 0, 0, 0, 0], seedRandom: 1)!
         
         let photo3 = UIImage(named: "image3")!
-        let dicoFr3 = ["nouveau, récent", "vieux", "rapide", "lent"]
-        let dicoJap3 = ["atarashii", "furui","hayai", "osoi"]
-        let lesson3 = Lesson(lessonTitle: "Adjectif3", picture: photo3, complet: 0.4, sucess: 0.2, dicoFr: dicoFr3, dicoJap: dicoJap3, dicoCall: [0, 0, 0, 0], dicoSucess: [0, 0, 0, 0])!
+        let dicoFr3 = ["nouveau, récent", "vieux", "rapide", "lent", "sucré"]
+        let dicoJap3 = ["atarashii", "furui","hayai", "osoi", "amai"]
+        let lesson3 = Lesson(lessonTitle: "Adjectif3", picture: photo3, complet: 0.4, sucess: 0.2, dicoFr: dicoFr3, dicoJap: dicoJap3, dicoCall: [0, 0, 0, 0, 0], dicoSucess: [0, 0, 0, 0, 0], seedRandom: 42)!
         
         lessons += [lesson1, lesson2, lesson3]
         saveLessons()
@@ -146,6 +146,7 @@ class LessonTableViewController: UITableViewController {
     
     @IBAction func unwindToLessonList(sender: UIStoryboardSegue) {
         print("call unwin")
+        saveLessons()
 //        if let sourceViewController = sender.sourceViewController as? MealViewController, meal = sourceViewController.meal {
 //            if let selectedIndexPath = tableView.indexPathForSelectedRow {
 //                // Update an existing meal.

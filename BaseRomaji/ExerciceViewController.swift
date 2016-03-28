@@ -22,7 +22,7 @@ class ExerciceViewController: UIViewController {
     
     var mode = "train"
     var lesson: Lesson!
-    
+    var arrayWord = [Int] ()
     var number = -1
     var buttonWord = 0
     var indexWord = 0
@@ -44,42 +44,81 @@ class ExerciceViewController: UIViewController {
         return newRandom
     }
     
+    func ArrayShuffle(var arrayNumber: [Int]) -> [Int] {
+        
+        for i in 0...arrayNumber.count - 1 {
+            let randomIndex = Int(rand()) % lesson.dicoFr.count
+            let numberSave = arrayNumber[i]
+            arrayNumber[i] = arrayNumber[randomIndex]
+            arrayNumber[randomIndex] = numberSave
+        }
+        return arrayNumber
+    }
+    
+    func CreateDuplicateArray() -> [Int]{
+        var arrayNumber = [Int]()
+        
+        // fill array with triple duplication number
+        
+        for i in 0...lesson.dicoFr.count - 1 {
+            arrayNumber.append(i)
+            arrayNumber.append(i)
+            arrayNumber.append(i)
+        }
+        return arrayNumber
+    }
+    
     func NewWord() {
-        print("newWord with mode: " + mode)
-        number += 1
+
+        // clean color
+        
+        outletButtonTopLeft.setTitleColor(UIColor.blueColor(), forState: .Normal)
+        outletButtonTopRight.setTitleColor(UIColor.blueColor(), forState: .Normal)
+        outletButtonBottomLeft.setTitleColor(UIColor.blueColor(), forState: .Normal)
+        outletButtonBottomRight.setTitleColor(UIColor.blueColor(), forState: .Normal)
+        
+        var numberGenerate = [Int]()
+        
+        buttonWord = Int(arc4random_uniform(4)) + 1
         if mode == "TrainingMode" {
-            print("enter train mode")
-            var numberGenerate = [Int]()
+            // Make random choice
+            numberGenerate.append(-1)
             numberGenerate.append(RandomExclu(numberGenerate))
             numberGenerate.append(RandomExclu(numberGenerate))
             numberGenerate.append(RandomExclu(numberGenerate))
             numberGenerate.append(RandomExclu(numberGenerate))
-            print("0: " + String(numberGenerate[0]) + " dicoJap: " + lesson.dicoJap[numberGenerate[0]])
-            print("1: " + String(numberGenerate[1]) + " dicoJap: " + lesson.dicoJap[numberGenerate[1]])
-            print("2: " + String(numberGenerate[2]) + " dicoJap: " + lesson.dicoJap[numberGenerate[2]])
-            print("3: " + String(numberGenerate[3]) + " dicoJap: " + lesson.dicoJap[numberGenerate[3]])
-            outletButtonTopLeft.setTitle(lesson.dicoJap[numberGenerate[0]], forState: .Normal)
-            outletButtonTopRight.setTitle(lesson.dicoJap[numberGenerate[1]], forState: .Normal)
-            outletButtonBottomLeft.setTitle(lesson.dicoJap[numberGenerate[2]], forState: .Normal)
-            outletButtonBottomRight.setTitle(lesson.dicoJap[numberGenerate[3]], forState: .Normal)
-            
-            outletButtonTopLeft.setTitleColor(UIColor.blueColor(), forState: .Normal)
-            outletButtonTopRight.setTitleColor(UIColor.blueColor(), forState: .Normal)
-            outletButtonBottomLeft.setTitleColor(UIColor.blueColor(), forState: .Normal)
-            outletButtonBottomRight.setTitleColor(UIColor.blueColor(), forState: .Normal)
-            buttonWord = Int(arc4random_uniform(4))
-            indexWord = numberGenerate[buttonWord]
-            
-            print("bottonWord: " + String(buttonWord))
-            print("indexWord: " + String(indexWord) + " , label: " + lesson.dicoFr[indexWord])
-            labelSearchWord.text = lesson.dicoFr[indexWord]
         }
         else if mode == "ExamMode" {
-        
+            // Make array of choice
+            
+            // first creation
+            number += 1
+            if (arrayWord.count == 0) {
+                srand(UInt32(lesson.seedRandom))
+                let newArray = CreateDuplicateArray()
+                arrayWord = ArrayShuffle(newArray)
+            }
+            numberGenerate.append(arrayWord[number])
+            numberGenerate.append(RandomExclu(numberGenerate))
+            numberGenerate.append(RandomExclu(numberGenerate))
+            numberGenerate.append(RandomExclu(numberGenerate))
+            numberGenerate.append(RandomExclu(numberGenerate))
+            numberGenerate[buttonWord] = numberGenerate[0]
         }
-        else {
+
+        // set word in view
         
-        }
+        indexWord = numberGenerate[buttonWord]
+        outletButtonTopLeft.setTitle(lesson.dicoJap[numberGenerate[1]], forState: .Normal)
+        outletButtonTopRight.setTitle(lesson.dicoJap[numberGenerate[2]], forState: .Normal)
+        outletButtonBottomLeft.setTitle(lesson.dicoJap[numberGenerate[3]], forState: .Normal)
+        outletButtonBottomRight.setTitle(lesson.dicoJap[numberGenerate[4]], forState: .Normal)
+        
+        // choose looking word and set
+        
+        
+        
+        labelSearchWord.text = lesson.dicoFr[indexWord]
     }
     
     /*
@@ -94,7 +133,7 @@ class ExerciceViewController: UIViewController {
         
         // actualisation call
         lesson.dicoCall[indexWord] += 1
-        if choice != buttonWord {
+        if choice != buttonWord - 1 {
             if choice == 0 {
                 outletButtonTopLeft.setTitleColor(UIColor.redColor(), forState: .Normal)
             }
