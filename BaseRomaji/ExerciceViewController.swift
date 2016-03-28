@@ -92,6 +92,8 @@ class ExerciceViewController: UIViewController {
     
     func CheckWord(choice: Int) {
         
+        // actualisation call
+        lesson.dicoCall[indexWord] += 1
         if choice != buttonWord {
             if choice == 0 {
                 outletButtonTopLeft.setTitleColor(UIColor.redColor(), forState: .Normal)
@@ -105,7 +107,6 @@ class ExerciceViewController: UIViewController {
             else {
                 outletButtonBottomRight.setTitleColor(UIColor.redColor(), forState: .Normal)
             }
-            // save Error
         }
         else {
             if choice == 0 {
@@ -120,24 +121,18 @@ class ExerciceViewController: UIViewController {
             else {
                 outletButtonBottomRight.setTitleColor(UIColor.greenColor(), forState: .Normal)
             }
-            // save Sucess
+            lesson.dicoSucess[indexWord] += 1
             NewWord()
         }
+        print("Word: " + lesson.dicoFr[indexWord] + " was call :" + String(lesson.dicoCall[indexWord]))
+        print("Find :" + String(lesson.dicoSucess[indexWord]) + " with sucess")
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         labelTitle.text = lesson.lessonTitle
-        /*labelSearchWord.text = lesson.dicoFr[0]
-        
-        outletButtonTopLeft.setTitle(lesson.dicoFr[0], forState: .Normal)
-        outletButtonTopRight.setTitle(lesson.dicoFr[1], forState: .Normal)
-        outletButtonBottomLeft.setTitle(lesson.dicoFr[2], forState: .Normal)
-        outletButtonBottomRight.setTitle(lesson.dicoFr[3], forState: .Normal)*/
-        print("viewLoad")
         NewWord()
-        
     }
   
     @IBAction func buttonTopLeft(sender: AnyObject) {

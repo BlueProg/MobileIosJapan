@@ -20,9 +20,11 @@ class Lesson: NSObject, NSCoding {
 
     var dicoFr: [String]
     var dicoJap: [String]
+    var dicoCall: [Int]
+    var dicoSucess: [Int]
     
     
-    init?(lessonTitle: String, picture: UIImage?, complet: Float, sucess: Float, dicoFr: [String], dicoJap: [String]) {
+    init?(lessonTitle: String, picture: UIImage?, complet: Float, sucess: Float, dicoFr: [String], dicoJap: [String], dicoCall: [Int], dicoSucess: [Int]) {
     
         self.lessonTitle = lessonTitle
         self.picture = picture
@@ -30,6 +32,8 @@ class Lesson: NSObject, NSCoding {
         self.sucess = sucess
         self.dicoFr = dicoFr
         self.dicoJap = dicoJap
+        self.dicoCall = dicoCall
+        self.dicoSucess = dicoSucess
      
         if lessonTitle.isEmpty || complet < 0 {
             return nil
@@ -43,6 +47,8 @@ class Lesson: NSObject, NSCoding {
         aCoder.encodeObject(sucess, forKey: "sucess")
         aCoder.encodeObject(dicoFr, forKey: "dicoFr")
         aCoder.encodeObject(dicoJap, forKey: "dicoJap")
+        aCoder.encodeObject(dicoCall, forKey: "dicoCall")
+        aCoder.encodeObject(dicoSucess, forKey: "dicoSucess")
     }
     
     required convenience init?(coder aDecoder: NSCoder) {
@@ -52,7 +58,9 @@ class Lesson: NSObject, NSCoding {
         let sucess = aDecoder.decodeObjectForKey("sucess") as! Float
         let dicoFr = aDecoder.decodeObjectForKey("dicoFr") as! [String]
         let dicoJap = aDecoder.decodeObjectForKey("dicoJap") as! [String]
+        let dicoCall = aDecoder.decodeObjectForKey("dicoCall") as! [Int]
+        let dicoSucess = aDecoder.decodeObjectForKey("dicoSucess") as! [Int]
         
-        self.init(lessonTitle: lessonTitle, picture: picture, complet: complet, sucess: sucess, dicoFr: dicoFr, dicoJap: dicoJap)
+        self.init(lessonTitle: lessonTitle, picture: picture, complet: complet, sucess: sucess, dicoFr: dicoFr, dicoJap: dicoJap, dicoCall: dicoCall, dicoSucess: dicoSucess)
     }
 }

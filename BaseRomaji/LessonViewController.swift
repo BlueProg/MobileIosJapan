@@ -11,6 +11,7 @@ import UIKit
 class LessonViewController: UIViewController {
 
     @IBOutlet weak var labelTitle: UILabel!
+    @IBOutlet weak var buttonReturn: UIBarButtonItem!
     
     var lesson: Lesson?
     
@@ -30,9 +31,12 @@ class LessonViewController: UIViewController {
     
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?){
-        let spec = segue.destinationViewController as! ExerciceViewController
-        spec.lesson = lesson!
-        spec.mode = segue.identifier!
+        
+        if buttonReturn !== sender {
+            let spec = segue.destinationViewController as! ExerciceViewController
+            spec.lesson = lesson!
+            spec.mode = segue.identifier!
+        }
     }
     
 }
