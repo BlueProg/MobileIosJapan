@@ -92,18 +92,18 @@ class ExerciceViewController: UIViewController {
             // Make array of choice
             
             // first creation
-            number += 1
             if (arrayWord.count == 0) {
                 srand(UInt32(lesson.seedRandom))
                 let newArray = CreateDuplicateArray()
                 arrayWord = ArrayShuffle(newArray)
             }
-            numberGenerate.append(arrayWord[number])
+            numberGenerate.append(arrayWord[lesson.complet])
             numberGenerate.append(RandomExclu(numberGenerate))
             numberGenerate.append(RandomExclu(numberGenerate))
             numberGenerate.append(RandomExclu(numberGenerate))
             numberGenerate.append(RandomExclu(numberGenerate))
             numberGenerate[buttonWord] = numberGenerate[0]
+            labelQuestionNumber.text = "Question: " + String(lesson.complet + 1) + " / " + String(arrayWord.count)
         }
 
         // set word in view
@@ -119,15 +119,21 @@ class ExerciceViewController: UIViewController {
         
         
         labelSearchWord.text = lesson.dicoFr[indexWord]
+    
     }
     
-    /*
- 
-     Training: Pas de limite de question, les mots sont choisie de maniere random
-     Exam: 35 Questions posé avec répetition si erreur, les mots sont listés de 3 à 4fois
-     Focus:Pas de limite mais le random aventage les mots ayant des erreurs plus forte
-     
-     */
+    func LevelFinish() {
+        let alert = UIAlertController(title: "Felicitation!", message: "Vous avez terminer l'exam avec un score de: " + String(lesson.sucess) + " /" + String(lesson.complet) + ", pour recommencer, faites reset", preferredStyle: UIAlertControllerStyle.Alert)
+        let alertAction = UIAlertAction(title: "OK!", style: UIAlertActionStyle.Default)
+        {
+            (UIAlertAction) -> Void in self.navigationController!.popViewControllerAnimated(true)
+        }
+        alert.addAction(alertAction)
+        presentViewController(alert, animated: true)
+        {
+            () -> Void in
+        }
+    }
     
     func CheckWord(choice: Int) {
         
@@ -146,6 +152,12 @@ class ExerciceViewController: UIViewController {
             else {
                 outletButtonBottomRight.setTitleColor(UIColor.redColor(), forState: .Normal)
             }
+            if (mode == "ExamMode") {
+                lesson.sucess -= 1
+                if lesson.sucess < 0 {
+                    lesson.sucess = 0
+                }
+            }
         }
         else {
             if choice == 0 {
@@ -160,18 +172,32 @@ class ExerciceViewController: UIViewController {
             else {
                 outletButtonBottomRight.setTitleColor(UIColor.greenColor(), forState: .Normal)
             }
+            if (mode == "ExamMode") {
+                lesson.sucess += 1
+                lesson.complet += 1
+                print(lesson.complet)
+                if lesson.complet == (lesson.dicoFr.count * 3) {
+                    LevelFinish()
+                    return ()
+                }
+            }
             lesson.dicoSucess[indexWord] += 1
             NewWord()
         }
-        print("Word: " + lesson.dicoFr[indexWord] + " was call :" + String(lesson.dicoCall[indexWord]))
-        print("Find :" + String(lesson.dicoSucess[indexWord]) + " with sucess")
+       /* print("Word: " + lesson.dicoFr[indexWord] + " was call :" + String(lesson.dicoCall[indexWord]))
+        print("Find :" + String(lesson.dicoSucess[indexWord]) + " with sucess")*/
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         labelTitle.text = lesson.lessonTitle
-        NewWord()
+        if lesson.complet >= (lesson.dicoFr.count * 3) {
+            LevelFinish()
+        }
+        else {
+            NewWord()
+        }
     }
   
     @IBAction func buttonTopLeft(sender: AnyObject) {

@@ -15,16 +15,16 @@ class Lesson: NSObject, NSCoding {
     
     var lessonTitle: String
     var picture: UIImage?
-    var complet: Float
-    var sucess: Float
+    var complet: Int
+    var sucess: Int
 
     var dicoFr: [String]
     var dicoJap: [String]
     var dicoCall: [Int]
     var dicoSucess: [Int]
-    var seedRandom: Int32
+    var seedRandom: Int
     
-    init?(lessonTitle: String, picture: UIImage?, complet: Float, sucess: Float, dicoFr: [String], dicoJap: [String], dicoCall: [Int], dicoSucess: [Int], seedRandom: Int32) {
+    init?(lessonTitle: String, picture: UIImage?, complet: Int, sucess: Int, dicoFr: [String], dicoJap: [String], dicoCall: [Int], dicoSucess: [Int], seedRandom: Int) {
     
         self.lessonTitle = lessonTitle
         self.picture = picture
@@ -56,13 +56,13 @@ class Lesson: NSObject, NSCoding {
     required convenience init?(coder aDecoder: NSCoder) {
         let lessonTitle = aDecoder.decodeObjectForKey("lessonTitle") as! String
         let picture = aDecoder.decodeObjectForKey("picture") as! UIImage
-        let complet = aDecoder.decodeObjectForKey("complet") as! Float
-        let sucess = aDecoder.decodeObjectForKey("sucess") as! Float
+        let complet = aDecoder.decodeObjectForKey("complet") as! Int
+        let sucess = aDecoder.decodeObjectForKey("sucess") as! Int
         let dicoFr = aDecoder.decodeObjectForKey("dicoFr") as! [String]
         let dicoJap = aDecoder.decodeObjectForKey("dicoJap") as! [String]
         let dicoCall = aDecoder.decodeObjectForKey("dicoCall") as! [Int]
         let dicoSucess = aDecoder.decodeObjectForKey("dicoSucess") as! [Int]
-        let seedRandom = aDecoder.decodeObjectForKey("seedRandom") as! Int32
+        let seedRandom = aDecoder.decodeObjectForKey("seedRandom") as! Int
         
         self.init(lessonTitle: lessonTitle, picture: picture, complet: complet, sucess: sucess, dicoFr: dicoFr, dicoJap: dicoJap, dicoCall: dicoCall, dicoSucess: dicoSucess, seedRandom: seedRandom)
     }

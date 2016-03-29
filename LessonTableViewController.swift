@@ -14,7 +14,7 @@ class LessonTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+//
 //       if let dataLesson = loadData() {
 //            lessons += dataLesson
 //            print("Data load")
@@ -63,12 +63,12 @@ class LessonTableViewController: UITableViewController {
         let photo2 = UIImage(named: "image2")!
         let dicofr2 = ["gros", "mince","haut, cher", "bas", "proche"]
         let dicoJap2 = ["futoi", "usui","takai", "hikui", "chikai"]
-        let lesson2 = Lesson(lessonTitle: "Adjectif2", picture: photo2, complet: 0.9, sucess: 0.7, dicoFr: dicofr2, dicoJap: dicoJap2, dicoCall: [0, 0, 0, 0, 0], dicoSucess: [0, 0, 0, 0, 0], seedRandom: 1)!
+        let lesson2 = Lesson(lessonTitle: "Adjectif2", picture: photo2, complet: 9, sucess: 7, dicoFr: dicofr2, dicoJap: dicoJap2, dicoCall: [0, 0, 0, 0, 0], dicoSucess: [0, 0, 0, 0, 0], seedRandom: 1)!
         
         let photo3 = UIImage(named: "image3")!
         let dicoFr3 = ["nouveau, récent", "vieux", "rapide", "lent", "sucré"]
         let dicoJap3 = ["atarashii", "furui","hayai", "osoi", "amai"]
-        let lesson3 = Lesson(lessonTitle: "Adjectif3", picture: photo3, complet: 0.4, sucess: 0.2, dicoFr: dicoFr3, dicoJap: dicoJap3, dicoCall: [0, 0, 0, 0, 0], dicoSucess: [0, 0, 0, 0, 0], seedRandom: 42)!
+        let lesson3 = Lesson(lessonTitle: "Adjectif3", picture: photo3, complet: 4, sucess: 2, dicoFr: dicoFr3, dicoJap: dicoJap3, dicoCall: [0, 0, 0, 0, 0], dicoSucess: [0, 0, 0, 0, 0], seedRandom: 42)!
         
         lessons += [lesson1, lesson2, lesson3]
         saveLessons()
@@ -82,8 +82,8 @@ class LessonTableViewController: UITableViewController {
         let focusLesson = lessons[indexPath.row]
         
         cell.titleLabel.text =  focusLesson.lessonTitle
-        cell.completBar.progress = focusLesson.complet
-        cell.sucessBar.progress = focusLesson.sucess
+        cell.completBar.progress = Float(focusLesson.complet) / Float(focusLesson.dicoFr.count * 3)
+        cell.sucessBar.progress = Float(focusLesson.sucess) / Float(focusLesson.dicoFr.count * 3)
         cell.imageSet.image = focusLesson.picture
         
         // Configure the cell...
