@@ -117,6 +117,9 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d2H-Ar-hxG">
                                                 <rect key="frame" x="290" y="0.0" width="270" height="30"/>
                                                 <state key="normal" title="Reset"/>
+                                                <connections>
+                                                    <action selector="ResetExam:" destination="O7w-VB-JJQ" eventType="touchUpInside" id="y31-4k-HW2"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -133,6 +136,9 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="itA-xj-lmN">
                                                 <rect key="frame" x="290" y="0.0" width="270" height="30"/>
                                                 <state key="normal" title="Reset"/>
+                                                <connections>
+                                                    <action selector="ResetFocus:" destination="O7w-VB-JJQ" eventType="touchUpInside" id="NQq-SO-nvi"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
