@@ -27,12 +27,42 @@ class ExerciceViewController: UIViewController {
     var buttonWord = 0
     var indexWord = 0
     
+    func RandFocus() -> Int {
+
+        var max = 0
+        for i in 0...lesson.dicoFr.count - 1 {
+            max += lesson.dicoCall[i] - lesson.dicoSucess[i]
+        }
+        
+        if max == 0 {
+            return -1
+        }
+        let choose = Int(arc4random_uniform(UInt32(max + 1)))
+        max = 0
+        for i in 0...lesson.dicoFr.count - 1 {
+            max += lesson.dicoCall[i] - lesson.dicoSucess[i]
+            if choose < max {
+                return i
+            }
+        }
+        return -1
+    }
+    
     func RandomExclu(Exclu: [Int]) -> Int {
     
         var newRandom = -1
+        var testNumber = -1
         
         while (newRandom == -1) {
-            let testNumber = Int(arc4random_uniform(UInt32(lesson.dicoFr.count)))
+            if mode == "FocusMode" {
+                testNumber = RandFocus()
+                if testNumber == -1 {
+                    testNumber = Int(arc4random_uniform(UInt32(lesson.dicoFr.count)))
+                }
+            }
+            else {
+                testNumber = Int(arc4random_uniform(UInt32(lesson.dicoFr.count)))
+            }
             newRandom = testNumber
             for numberExclu in Exclu {
                 if newRandom == numberExclu {
@@ -80,15 +110,8 @@ class ExerciceViewController: UIViewController {
         var numberGenerate = [Int]()
         
         buttonWord = Int(arc4random_uniform(4)) + 1
-        if mode == "TrainingMode" {
-            // Make random choice
-            numberGenerate.append(-1)
-            numberGenerate.append(RandomExclu(numberGenerate))
-            numberGenerate.append(RandomExclu(numberGenerate))
-            numberGenerate.append(RandomExclu(numberGenerate))
-            numberGenerate.append(RandomExclu(numberGenerate))
-        }
-        else if mode == "ExamMode" {
+        
+        if mode == "ExamMode" {
             // Make array of choice
             
             // first creation
@@ -105,7 +128,14 @@ class ExerciceViewController: UIViewController {
             numberGenerate[buttonWord] = numberGenerate[0]
             labelQuestionNumber.text = "Question: " + String(lesson.complet + 1) + " / " + String(arrayWord.count)
         }
-
+        else {
+            // Make random choice
+            numberGenerate.append(-1)
+            numberGenerate.append(RandomExclu(numberGenerate))
+            numberGenerate.append(RandomExclu(numberGenerate))
+            numberGenerate.append(RandomExclu(numberGenerate))
+            numberGenerate.append(RandomExclu(numberGenerate))
+        }
         // set word in view
         
         indexWord = numberGenerate[buttonWord]
