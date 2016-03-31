@@ -146,21 +146,13 @@ class LessonTableViewController: UITableViewController {
     
     @IBAction func unwindToLessonList(sender: UIStoryboardSegue) {
         print("call unwin")
-        saveLessons()
-//        if let sourceViewController = sender.sourceViewController as? MealViewController, meal = sourceViewController.meal {
-//            if let selectedIndexPath = tableView.indexPathForSelectedRow {
-//                // Update an existing meal.
-//                meals[selectedIndexPath.row] = meal
-//                tableView.reloadRowsAtIndexPaths([selectedIndexPath], withRowAnimation: .None)
-//            } else {
-//                // Add a new meal.
-//                let newIndexPath = NSIndexPath(forRow: meals.count, inSection: 0)
-//                meals.append(meal)
-//                tableView.insertRowsAtIndexPaths([newIndexPath], withRowAnimation: .Bottom)
-//            }
-//            // Save the meals.
-//            saveMeals()
-//        }
+        if let sourceViewController = sender.sourceViewController as? LessonViewController, lesson = sourceViewController.lesson {
+            if let selectedIndexPath = tableView.indexPathForSelectedRow {
+                lessons[selectedIndexPath.row] = lesson
+                tableView.reloadRowsAtIndexPaths([selectedIndexPath], withRowAnimation: .None)
+            }
+            saveLessons()
+        }
     }
     
 }

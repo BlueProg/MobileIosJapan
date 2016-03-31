@@ -99,8 +99,6 @@ class ExerciceViewController: UIViewController {
     }
     
     func NewWord() {
-
-        // clean color
         
         outletButtonTopLeft.setTitleColor(UIColor.blueColor(), forState: .Normal)
         outletButtonTopRight.setTitleColor(UIColor.blueColor(), forState: .Normal)
@@ -112,9 +110,6 @@ class ExerciceViewController: UIViewController {
         buttonWord = Int(arc4random_uniform(4)) + 1
         
         if mode == "ExamMode" {
-            // Make array of choice
-            
-            // first creation
             if (arrayWord.count == 0) {
                 srand(UInt32(lesson.seedRandom))
                 let newArray = CreateDuplicateArray()
@@ -129,25 +124,19 @@ class ExerciceViewController: UIViewController {
             labelQuestionNumber.text = "Question: " + String(lesson.complet + 1) + " / " + String(arrayWord.count)
         }
         else {
-            // Make random choice
             numberGenerate.append(-1)
             numberGenerate.append(RandomExclu(numberGenerate))
             numberGenerate.append(RandomExclu(numberGenerate))
             numberGenerate.append(RandomExclu(numberGenerate))
             numberGenerate.append(RandomExclu(numberGenerate))
         }
-        // set word in view
         
         indexWord = numberGenerate[buttonWord]
         outletButtonTopLeft.setTitle(lesson.dicoJap[numberGenerate[1]], forState: .Normal)
         outletButtonTopRight.setTitle(lesson.dicoJap[numberGenerate[2]], forState: .Normal)
         outletButtonBottomLeft.setTitle(lesson.dicoJap[numberGenerate[3]], forState: .Normal)
         outletButtonBottomRight.setTitle(lesson.dicoJap[numberGenerate[4]], forState: .Normal)
-        
-        // choose looking word and set
-        
-        
-        
+
         labelSearchWord.text = lesson.dicoFr[indexWord]
     
     }
