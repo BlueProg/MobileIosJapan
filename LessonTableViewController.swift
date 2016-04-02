@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftyJSON
 
 class LessonTableViewController: UITableViewController {
 
@@ -14,31 +15,29 @@ class LessonTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-       if let dataLesson = loadData() {
-            lessons += dataLesson
-            print("Data load")
-        }
-        else {
-            loadSampleLesson()
-            print("Data sample")
-        }
+        
+//        if let dataLesson = loadData() {
+//            lessons += dataLesson
+//            print("Data load")
+//        }
+//        else {
+//            loadSampleLesson()
+//            print("Data sample")
+//        }
+        loadDataJson()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
     // MARK: - Table view data source
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return 1
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
         return lessons.count
     }
     
@@ -50,6 +49,36 @@ class LessonTableViewController: UITableViewController {
         let isSucessfulSave = NSKeyedArchiver.archiveRootObject(lessons, toFile: Lesson.ArchiveURL.path!)
         if !isSucessfulSave {
             print("Failed to save lessons ...")
+        }
+    }
+    
+    func    loadDataJson() {
+        
+        if let file = NSBundle(forClass:LessonTableViewController.self).pathForResource("Data", ofType: "json") {
+            let data = NSData(contentsOfFile: file)
+            let jsonObj = JSON(data: data!)
+            if jsonObj != JSON.null {
+                for i in 0 ... jsonObj.count - 1 {
+                    let lesson = Lesson(
+                        lessonTitle:  jsonObj[i]["lessonTitle"].stringValue,
+                        picture: UIImage(named: "image1"),
+                        complet: 0,
+                        sucess: 0,
+                        dicoFr: jsonObj[i]["dictonaryFr"].arrayValue.map { "\($0)"},
+                        dicoJap: jsonObj[i]["dictonaryJap"].arrayValue.map { "\($0)"},
+                        dicoCall: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                        dicoSucess: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                        seedRandom: 0
+                    )!
+                    lessons.append(lesson)
+                }
+                
+            } else {
+                print("could not get json from file, make sure that file contains valid json.")
+            }
+        }
+        else {
+            print("Invalid filename/path.")
         }
     }
     
@@ -86,50 +115,9 @@ class LessonTableViewController: UITableViewController {
         cell.sucessBar.progress = Float(focusLesson.sucess) / Float(focusLesson.dicoFr.count * 3)
         cell.imageSet.image = focusLesson.picture
         
-        // Configure the cell...
         return cell
     }
     
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if editingStyle == .Delete {
-            // Delete the row from the data source
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-        } else if editingStyle == .Insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "ShowLesson" {
             let lessonDetailViewController = segue.destinationViewController as! LessonViewController
@@ -140,12 +128,10 @@ class LessonTableViewController: UITableViewController {
                 lessonDetailViewController.lesson = selectedLesson
             }
         }
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
     }
     
     @IBAction func unwindToLessonList(sender: UIStoryboardSegue) {
-        print("call unwin")
+
         if let sourceViewController = sender.sourceViewController as? LessonViewController, lesson = sourceViewController.lesson {
             if let selectedIndexPath = tableView.indexPathForSelectedRow {
                 lessons[selectedIndexPath.row] = lesson

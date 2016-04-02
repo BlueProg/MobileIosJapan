@@ -1,0 +1,6 @@
+framework module Pods_BaseRomaji {
+  umbrella header "Pods-BaseRomaji-umbrella.h"
+
+  export *
+  module * { export * }
+}

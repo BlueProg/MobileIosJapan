@@ -31,9 +31,7 @@ class LessonViewController: UIViewController {
     }
 
     @IBAction func Cancel(sender: UIBarButtonItem) {
-        
-       // dismissViewControllerAnimated(true, completion: nil)  avec navigation
-        navigationController!.popViewControllerAnimated(true) // lien direct
+        navigationController!.popViewControllerAnimated(true)
     }
     
     @IBAction func ResetExam(sender: UIButton) {
