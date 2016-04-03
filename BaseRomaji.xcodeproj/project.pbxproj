@@ -19,7 +19,7 @@
 		70AC9D821C9890F600478B97 /* LessonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70AC9D811C9890F600478B97 /* LessonTableViewCell.swift */; };
 		70AC9D881C98BAD600478B97 /* LessonTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70AC9D871C98BAD600478B97 /* LessonTableViewController.swift */; };
 		70AC9D8A1C98BB7200478B97 /* Lesson.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70AC9D891C98BB7200478B97 /* Lesson.swift */; };
-		70C24E131CB0615600185B34 /* Data.json in Resources */ = {isa = PBXBuildFile; fileRef = 70C24E121CB0615600185B34 /* Data.json */; };
+		70C24E151CB06B1A00185B34 /* Data.json in Resources */ = {isa = PBXBuildFile; fileRef = 70C24E141CB06B1A00185B34 /* Data.json */; };
 		ACA4C872B90A700F1A5705A1 /* Pods_BaseRomaji.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE4B3308C9E77D229EEACF19 /* Pods_BaseRomaji.framework */; };
 /* End PBXBuildFile section */
 
@@ -61,7 +61,7 @@
 		70AC9D811C9890F600478B97 /* LessonTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LessonTableViewCell.swift; sourceTree = "<group>"; };
 		70AC9D871C98BAD600478B97 /* LessonTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LessonTableViewController.swift; path = ../LessonTableViewController.swift; sourceTree = "<group>"; };
 		70AC9D891C98BB7200478B97 /* Lesson.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Lesson.swift; sourceTree = "<group>"; };
-		70C24E121CB0615600185B34 /* Data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = Data.json; path = ../../../../Data.json; sourceTree = "<group>"; };
+		70C24E141CB06B1A00185B34 /* Data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Data.json; sourceTree = "<group>"; };
 		7517C3130BBB79E946C69DD6 /* Pods-BaseRomaji.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BaseRomaji.release.xcconfig"; path = "Pods/Target Support Files/Pods-BaseRomaji/Pods-BaseRomaji.release.xcconfig"; sourceTree = "<group>"; };
 		AE4B3308C9E77D229EEACF19 /* Pods_BaseRomaji.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BaseRomaji.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB19BEA6456394DC1F25C670 /* Pods-BaseRomaji.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BaseRomaji.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BaseRomaji/Pods-BaseRomaji.debug.xcconfig"; sourceTree = "<group>"; };
@@ -127,7 +127,7 @@
 		7038C8AF1C7665E7009245BF /* BaseRomaji */ = {
 			isa = PBXGroup;
 			children = (
-				70C24E121CB0615600185B34 /* Data.json */,
+				70C24E141CB06B1A00185B34 /* Data.json */,
 				7072D52F1C9EFC1E005A2F2C /* ExerciceViewController.swift */,
 				706F20A91C9CA5890062C1B2 /* LessonViewController.swift */,
 				70AC9D891C98BB7200478B97 /* Lesson.swift */,
@@ -281,7 +281,7 @@
 				7038C8BB1C7665E7009245BF /* LaunchScreen.storyboard in Resources */,
 				7038C8B81C7665E7009245BF /* Assets.xcassets in Resources */,
 				7038C8B61C7665E7009245BF /* Main.storyboard in Resources */,
-				70C24E131CB0615600185B34 /* Data.json in Resources */,
+				70C24E151CB06B1A00185B34 /* Data.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

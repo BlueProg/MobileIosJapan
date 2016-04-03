@@ -156,7 +156,6 @@ class ExerciceViewController: UIViewController {
     
     func CheckWord(choice: Int) {
         
-        // actualisation call
         lesson.dicoCall[indexWord] += 1
         if choice != buttonWord - 1 {
             if choice == 0 {
@@ -203,8 +202,6 @@ class ExerciceViewController: UIViewController {
             lesson.dicoSucess[indexWord] += 1
             NewWord()
         }
-       /* print("Word: " + lesson.dicoFr[indexWord] + " was call :" + String(lesson.dicoCall[indexWord]))
-        print("Find :" + String(lesson.dicoSucess[indexWord]) + " with sucess")*/
     }
     
     override func viewDidLoad() {
@@ -220,22 +217,18 @@ class ExerciceViewController: UIViewController {
     }
   
     @IBAction func buttonTopLeft(sender: AnyObject) {
-        print("buttonLeft")
         CheckWord(0)
     }
     
     @IBAction func buttonTopRight(sender: AnyObject) {
-        print("buttonRight")
         CheckWord(1)
     }
     
     @IBAction func buttonBottomLeft(sender: AnyObject) {
-        print("buttonBottomLeft")
         CheckWord(2)
     }
     
     @IBAction func buttonBottomRight(sender: AnyObject) {
-        print("buttonBottomRight")
         CheckWord(3)
     }
 }

@@ -16,15 +16,12 @@ class LessonTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        if let dataLesson = loadData() {
-//            lessons += dataLesson
-//            print("Data load")
-//        }
-//        else {
-//            loadSampleLesson()
-//            print("Data sample")
-//        }
-        loadDataJson()
+        if let dataLesson = loadData() {
+            lessons += dataLesson
+        }
+        else {
+            loadDataJson()
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -61,18 +58,18 @@ class LessonTableViewController: UITableViewController {
                 for i in 0 ... jsonObj.count - 1 {
                     let lesson = Lesson(
                         lessonTitle:  jsonObj[i]["lessonTitle"].stringValue,
-                        picture: UIImage(named: "image1"),
+                        picture: UIImage(named: jsonObj[i]["picture"].stringValue),
                         complet: 0,
                         sucess: 0,
                         dicoFr: jsonObj[i]["dictonaryFr"].arrayValue.map { "\($0)"},
                         dicoJap: jsonObj[i]["dictonaryJap"].arrayValue.map { "\($0)"},
-                        dicoCall: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                        dicoSucess: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                        seedRandom: 0
+                        dicoCall: [Int](count: jsonObj[i]["dictonaryFr"].count, repeatedValue: 0),
+                        dicoSucess: [Int](count: jsonObj[i]["dictonaryFr"].count, repeatedValue: 0),
+                        seedRandom: Int(arc4random_uniform(777))
                     )!
                     lessons.append(lesson)
                 }
-                
+                saveLessons()
             } else {
                 print("could not get json from file, make sure that file contains valid json.")
             }
@@ -81,28 +78,6 @@ class LessonTableViewController: UITableViewController {
             print("Invalid filename/path.")
         }
     }
-    
-    func    loadSampleLesson() {
-        
-        let photo1 = UIImage(named: "image1")!
-        let dicofr1 = ["grand", "petit","chaud", "froid", "loin"]
-        let dicojap1 = ["ookii", "chiisai","atsui", "samui", "tooi"]
-        let lesson1 = Lesson(lessonTitle: "Adjectif1", picture: photo1, complet: 0, sucess: 0, dicoFr: dicofr1, dicoJap: dicojap1, dicoCall: [0, 0, 0, 0, 0], dicoSucess: [0, 0, 0, 0, 0], seedRandom: 0)!
-        
-        let photo2 = UIImage(named: "image2")!
-        let dicofr2 = ["gros", "mince","haut, cher", "bas", "proche"]
-        let dicoJap2 = ["futoi", "usui","takai", "hikui", "chikai"]
-        let lesson2 = Lesson(lessonTitle: "Adjectif2", picture: photo2, complet: 0, sucess: 0, dicoFr: dicofr2, dicoJap: dicoJap2, dicoCall: [0, 0, 0, 0, 0], dicoSucess: [0, 0, 0, 0, 0], seedRandom: 1)!
-        
-        let photo3 = UIImage(named: "image3")!
-        let dicoFr3 = ["nouveau, récent", "vieux", "rapide", "lent", "sucré"]
-        let dicoJap3 = ["atarashii", "furui","hayai", "osoi", "amai"]
-        let lesson3 = Lesson(lessonTitle: "Adjectif3", picture: photo3, complet: 0, sucess: 0, dicoFr: dicoFr3, dicoJap: dicoJap3, dicoCall: [0, 0, 0, 0, 0], dicoSucess: [0, 0, 0, 0, 0], seedRandom: 42)!
-        
-        lessons += [lesson1, lesson2, lesson3]
-        saveLessons()
-    }
-
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         

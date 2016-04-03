@@ -19,15 +19,6 @@ class LessonViewController: UIViewController {
         super.viewDidLoad()
         
         labelTitle.text = lesson.lessonTitle
-        
-        print(lesson.dicoFr[0])
-        print(String(lesson.dicoCall[0]) + " " + String(lesson.dicoSucess[0]))
-        print(lesson.dicoFr[1])
-        print(String(lesson.dicoCall[1]) + " " + String(lesson.dicoSucess[1]))
-        print(lesson.dicoFr[2])
-        print(String(lesson.dicoCall[2]) + " " + String(lesson.dicoSucess[2]))
-        print(lesson.dicoFr[3])
-        print(String(lesson.dicoCall[3]) + " " + String(lesson.dicoSucess[3]))
     }
 
     @IBAction func Cancel(sender: UIBarButtonItem) {
