@@ -154,7 +154,7 @@
                   ]
   },
   {
-  "lessonTitle": "Verbes en -i Godan",
+  "lessonTitle": "Verbes en -I Godan",
   "picture": "defaultImage",
   "dictonaryJap": [
                    "hair-u",
@@ -172,7 +172,7 @@
                   ]
   },
   {
-  "lessonTitle": "Verbes en -e Godan",
+  "lessonTitle": "Verbes en -E Godan",
   "picture": "defaultImage",
   "dictonaryJap": [
                    "kaer-u",
@@ -213,82 +213,6 @@
                   "injurier",
                   "tordre",
                   "flotter"
-                  ]
-  },
-  {
-  "lessonTitle": "ea",
-  "picture": "defaultImage",
-  "dictonaryJap": [
-                   "consectetur",
-                   "consequat",
-                   "aute",
-                   "nulla",
-                   "Lorem",
-                   "aliqua",
-                   "irure",
-                   "reprehenderit",
-                   "ipsum",
-                   "magna",
-                   "nisi",
-                   "aute",
-                   "aliqua",
-                   "nostrud",
-                   "quis"
-                   ],
-  "dictonaryFr": [
-                  "proident",
-                  "ipsum",
-                  "reprehenderit",
-                  "tempor",
-                  "tempor",
-                  "proident",
-                  "Lorem",
-                  "consectetur",
-                  "nisi",
-                  "dolor",
-                  "magna",
-                  "sit",
-                  "enim",
-                  "minim",
-                  "ea"
-                  ]
-  },
-  {
-  "lessonTitle": "nisi",
-  "picture": "defaultImage",
-  "dictonaryJap": [
-                   "cillum",
-                   "magna",
-                   "excepteur",
-                   "dolore",
-                   "reprehenderit",
-                   "elit",
-                   "et",
-                   "velit",
-                   "fugiat",
-                   "magna",
-                   "exercitation",
-                   "aliquip",
-                   "nisi",
-                   "et",
-                   "ipsum"
-                   ],
-  "dictonaryFr": [
-                  "cupidatat",
-                  "id",
-                  "aute",
-                  "minim",
-                  "consectetur",
-                  "fugiat",
-                  "nulla",
-                  "enim",
-                  "nisi",
-                  "exercitation",
-                  "consequat",
-                  "incididunt",
-                  "sunt",
-                  "id",
-                  "occaecat"
                   ]
   }
   ]

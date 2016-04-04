@@ -100,11 +100,7 @@ class ExerciceViewController: UIViewController {
     
     func NewWord() {
         
-        outletButtonTopLeft.setTitleColor(UIColor.blueColor(), forState: .Normal)
-        outletButtonTopRight.setTitleColor(UIColor.blueColor(), forState: .Normal)
-        outletButtonBottomLeft.setTitleColor(UIColor.blueColor(), forState: .Normal)
-        outletButtonBottomRight.setTitleColor(UIColor.blueColor(), forState: .Normal)
-        
+        usleep(200000)
         var numberGenerate = [Int]()
         
         buttonWord = Int(arc4random_uniform(4)) + 1
@@ -136,7 +132,10 @@ class ExerciceViewController: UIViewController {
         outletButtonTopRight.setTitle(lesson.dicoJap[numberGenerate[2]], forState: .Normal)
         outletButtonBottomLeft.setTitle(lesson.dicoJap[numberGenerate[3]], forState: .Normal)
         outletButtonBottomRight.setTitle(lesson.dicoJap[numberGenerate[4]], forState: .Normal)
-
+        outletButtonTopLeft.setTitleColor(UIColor.blueColor(), forState: .Normal)
+        outletButtonTopRight.setTitleColor(UIColor.blueColor(), forState: .Normal)
+        outletButtonBottomLeft.setTitleColor(UIColor.blueColor(), forState: .Normal)
+        outletButtonBottomRight.setTitleColor(UIColor.blueColor(), forState: .Normal)
         labelSearchWord.text = lesson.dicoFr[indexWord]
     
     }
@@ -179,15 +178,19 @@ class ExerciceViewController: UIViewController {
         }
         else {
             if choice == 0 {
+                print("Entre")
                 outletButtonTopLeft.setTitleColor(UIColor.greenColor(), forState: .Normal)
             }
             else if choice == 1 {
+                print("Entre1")
                 outletButtonTopRight.setTitleColor(UIColor.greenColor(), forState: .Normal)
             }
             else if choice == 2 {
+                print("Entre2")
                 outletButtonBottomLeft.setTitleColor(UIColor.greenColor(), forState: .Normal)
             }
             else {
+                print("Entre3")
                 outletButtonBottomRight.setTitleColor(UIColor.greenColor(), forState: .Normal)
             }
             if (mode == "ExamMode") {
